@@ -1,0 +1,25 @@
+//değişkenler (let --> immutable, var --> mutable)
+//async = bekletmeden çalıştırır
+//canister = akıllı sözleşme
+
+//sayının karesini bulan program
+
+actor square{
+  var square : Int = 0; // square değişkeni başlangıcı 0 olacak şekilde tanımlandı.
+
+  public func hesaplama(sayi : Int) : async ?Int {
+    if (sayi == 0) // gelen değer sıfır olursa null dönderecek
+    {
+      null
+    }
+    else
+    {
+      square := sayi*sayi; // sayının karesi hesaplanıp square değişkenine atandı
+      ?square;
+    };
+  };
+    // temizlik
+    public func temizle() : async () {
+      square := 0;
+    };
+}; 
